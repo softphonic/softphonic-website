@@ -1,89 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Softphonic Technologies Private Limited</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f9fc;
-    color: #333;
-}
+    <title>Softphonic Technologies Private Limited</title>
 
-.container {
-    max-width: 700px;
-    margin: 100px auto;
-    text-align: center;
-    padding: 20px;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.logo {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e40af);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
 
-h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
+        .container {
+            max-width: 850px;
+            width: 100%;
+            text-align: center;
+        }
 
-.subtitle {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
-}
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
 
-.contact-box {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
+        .tagline {
+            color: #dbeafe;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
 
-.contact-box p {
-    margin: 12px 0;
-    font-size: 16px;
-}
+        .badge {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
 
-.footer {
-    margin-top: 40px;
-    color: #999;
-    font-size: 14px;
-}
-</style>
+        h1 {
+            font-size: 54px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #dbeafe;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            padding: 35px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .services {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .services li {
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 12px 0;
+            font-size: 17px;
+        }
+
+        .contact a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #2563eb;
+            color: white !important;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #1d4ed8;
+            text-decoration: none;
+        }
+
+        .footer {
+            margin-top: 35px;
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin: 30px 0;
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="logo">Softphonic Technologies Private Limited</div>
+    <div class="logo">
+        Softphonic Technologies Private Limited
+    </div>
+
+    <div class="tagline">
+        Transforming Ideas into Digital Solutions
+    </div>
+
+    <div class="badge">
+        🚀 Website Launching Soon
+    </div>
 
     <h1>Coming Soon</h1>
 
     <p class="subtitle">
-        We're building something exciting.
-        Our website will be launching soon.
+        We are building innovative software solutions for businesses worldwide.
+        Our official website is currently under development and will be launching soon.
     </p>
 
-    <div class="contact-box">
-        <h3>Contact Us</h3>
+    <div class="card">
 
-        <p>📞 +91 84219 45039</p>
+        <h2>Our Services</h2>
 
-        <p>✉️ contact@softphonic.com</p>
+        <ul class="services">
+            <li>✓ Custom Software Development</li>
+            <li>✓ Web Application Development</li>
+            <li>✓ Mobile App Development (Android & iOS)</li>
+            <li>✓ Backend & Cloud Solutions</li>
+            <li>✓ API Integration & Automation</li>
+            <li>✓ IT Consulting & Digital Transformation</li>
+        </ul>
+
+        <hr>
+
+        <div class="contact">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                For software development, consulting, or partnership inquiries,
+                feel free to contact us.
+            </p>
+
+            <p>
+                📞
+                <a href="tel:+918421945039">
+                    +91 84219 45039
+                </a>
+            </p>
+
+            <p>
+                ✉️
+                <a href="mailto:contact@softphonic.com">
+                    contact@softphonic.com
+                </a>
+            </p>
+
+            <p>
+                📍 Pune, Maharashtra, India
+            </p>
+
+            <a href="mailto:contact@softphonic.com" class="cta-btn">
+                Request a Consultation
+            </a>
+
+        </div>
 
     </div>
 
     <div class="footer">
-        © 2026 Softphonic Technologies Private Limited. All rights reserved.
+        © 2026 Softphonic Technologies Private Limited. All Rights Reserved.
     </div>
 
 </div>
 
 </body>
-</html>	
+</html>
