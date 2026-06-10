@@ -3,221 +3,778 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Softphonic Technologies Private Limited</title>
+    <meta name="description" content="Softphonic Technologies Private Limited builds custom software, web apps, mobile apps, cloud platforms, and automation solutions for growing businesses.">
+    <title>Softphonic Technologies Private Limited | Apps, Web & Cloud Solutions</title>
 
     <style>
+        :root {
+            --ink: #0d1b2a;
+            --muted: #516173;
+            --brand: #0668d9;
+            --brand-dark: #043d8d;
+            --cyan: #13bfd7;
+            --surface: #ffffff;
+            --soft: #f3f8fc;
+            --line: #d9e6f1;
+            --shadow: 0 20px 55px rgba(13, 27, 42, 0.12);
+            --radius: 8px;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e40af);
-            color: #ffffff;
+            color: var(--ink);
+            background: var(--surface);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        address {
+            font-style: normal;
+        }
+
+        .page {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 850px;
-            width: 100%;
-            text-align: center;
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
         }
 
-        .logo {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(217, 230, 241, 0.8);
+            backdrop-filter: blur(16px);
         }
 
-        .tagline {
-            color: #dbeafe;
-            font-size: 18px;
-            margin-bottom: 25px;
+        .nav {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
         }
 
-        .badge {
-            display: inline-block;
-            background: #22c55e;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 999px;
-            font-size: 14px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            min-width: 0;
+        }
+
+        .brand img {
+            width: 54px;
+            height: 54px;
+            border-radius: 8px;
+            object-fit: cover;
+            object-position: center 18%;
+            background: #fff;
+            box-shadow: 0 8px 22px rgba(6, 104, 217, 0.14);
+        }
+
+        .brand-text {
+            display: grid;
+            line-height: 1.15;
+        }
+
+        .brand-name {
+            font-size: 17px;
+            font-weight: 750;
+            color: var(--ink);
+        }
+
+        .brand-line {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            color: #314154;
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 12px 20px;
+            border-radius: var(--radius);
+            border: 1px solid transparent;
+            background: var(--brand);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 12px 28px rgba(6, 104, 217, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: var(--brand-dark);
+            box-shadow: 0 16px 34px rgba(6, 104, 217, 0.28);
+        }
+
+        .button.secondary {
+            background: #fff;
+            color: var(--brand);
+            border-color: var(--line);
+            box-shadow: none;
+        }
+
+        .button.secondary:hover {
+            color: var(--brand-dark);
+            border-color: rgba(6, 104, 217, 0.28);
+            background: #f8fbff;
+        }
+
+        .hero {
+            position: relative;
+            padding: 92px 0 72px;
+            background:
+                radial-gradient(circle at 84% 12%, rgba(19, 191, 215, 0.24), transparent 28%),
+                linear-gradient(135deg, #f8fbff 0%, #eef7fb 48%, #ffffff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 54px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 20px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(6, 104, 217, 0.08);
+            color: var(--brand-dark);
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 0 5px rgba(19, 191, 215, 0.16);
         }
 
         h1 {
-            font-size: 54px;
-            margin-bottom: 15px;
+            max-width: 760px;
+            font-size: clamp(38px, 6vw, 70px);
+            line-height: 1.03;
+            letter-spacing: 0;
+            color: var(--ink);
         }
 
-        .subtitle {
-            color: #dbeafe;
+        .hero-copy {
+            max-width: 650px;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 19px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--brand-dark);
+            font-size: 26px;
+            line-height: 1;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        .hero-card {
+            padding: 34px;
+            border: 1px solid rgba(217, 230, 241, 0.9);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-logo {
+            width: min(300px, 84%);
+            margin: 0 auto 28px;
+        }
+
+        .capability-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .capability {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 14px;
+            align-items: start;
+            padding: 16px;
+            border-radius: var(--radius);
+            background: var(--soft);
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand), var(--cyan));
+            font-weight: 800;
+        }
+
+        .capability h3,
+        .service h3,
+        .step h3 {
             font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 40px;
+            line-height: 1.25;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.10);
-            backdrop-filter: blur(10px);
-            border-radius: 18px;
-            padding: 35px;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .capability p,
+        .service p,
+        .step p {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 15px;
         }
 
-        .card h2 {
-            text-align: center;
-            margin-bottom: 20px;
+        section {
+            padding: 82px 0;
         }
 
-        .services {
-            list-style: none;
-            margin-bottom: 30px;
+        .section-head {
+            max-width: 720px;
+            margin-bottom: 34px;
         }
 
-        .services li {
-            margin: 12px 0;
-            font-size: 16px;
+        .section-kicker {
+            color: var(--brand);
+            font-weight: 800;
+            font-size: 13px;
+            text-transform: uppercase;
         }
 
-        .contact {
-            text-align: center;
+        h2 {
+            margin-top: 8px;
+            color: var(--ink);
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.12;
+            letter-spacing: 0;
         }
 
-        .contact p {
-            margin: 12px 0;
+        .section-head p {
+            margin-top: 14px;
+            color: var(--muted);
             font-size: 17px;
         }
 
-        .contact a {
-            color: #93c5fd;
-            text-decoration: none;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
         }
 
-        .contact a:hover {
+        .service {
+            min-height: 230px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 104, 217, 0.26);
+            box-shadow: 0 16px 35px rgba(13, 27, 42, 0.09);
+        }
+
+        .service .icon {
+            margin-bottom: 18px;
+        }
+
+        .process {
+            background: var(--soft);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            counter-reset: process;
+        }
+
+        .step {
+            position: relative;
+            padding: 24px;
+            border: 1px solid rgba(217, 230, 241, 0.9);
+            border-radius: var(--radius);
+            background: #fff;
+        }
+
+        .step::before {
+            counter-increment: process;
+            content: "0" counter(process);
+            display: inline-flex;
+            margin-bottom: 26px;
+            color: var(--brand);
+            font-size: 14px;
+            font-weight: 850;
+        }
+
+        .contact-section {
+            color: #fff;
+            background:
+                linear-gradient(135deg, rgba(4, 61, 141, 0.96), rgba(6, 104, 217, 0.94)),
+                url("softphonic_logo.png") center/520px no-repeat;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 42px;
+            align-items: start;
+        }
+
+        .contact-section .section-kicker,
+        .contact-section h2,
+        .contact-section p {
+            color: #fff;
+        }
+
+        .contact-section .section-head {
+            margin-bottom: 0;
+        }
+
+        .contact-panel {
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        .contact-item {
+            display: grid;
+            gap: 4px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .contact-item:first-child {
+            padding-top: 0;
+        }
+
+        .contact-item:last-of-type {
+            border-bottom: 0;
+        }
+
+        .contact-label {
+            color: rgba(255, 255, 255, 0.76);
+            font-size: 13px;
+            font-weight: 750;
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 750;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-value:hover {
             text-decoration: underline;
-            color: #ffffff;
         }
 
-        .cta-btn {
-            display: inline-block;
+        .contact-panel .button {
+            width: 100%;
             margin-top: 20px;
-            background: #2563eb;
-            color: white !important;
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: 0.3s;
+            background: #fff;
+            color: var(--brand-dark);
+            box-shadow: none;
         }
 
-        .cta-btn:hover {
-            background: #1d4ed8;
-            text-decoration: none;
-        }
-
-        .footer {
-            margin-top: 35px;
-            text-align: center;
-            color: #cbd5e1;
+        .site-footer {
+            padding: 28px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
             font-size: 14px;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            margin: 30px 0;
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 16px 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                gap: 14px;
+                overflow-x: auto;
+                padding-bottom: 3px;
+            }
+
+            .hero {
+                padding-top: 58px;
+            }
+
+            .hero-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                max-width: 560px;
+            }
+
+            .services-grid,
+            .steps {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 620px) {
+            .container {
+                width: min(100% - 28px, 1120px);
+            }
+
+            .brand img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .brand-name {
+                font-size: 15px;
+            }
+
+            .brand-line {
+                font-size: 12px;
+            }
+
+            .nav-links {
+                font-size: 14px;
+            }
+
+            .nav-links .button {
+                min-height: 40px;
+                padding: 9px 14px;
+                white-space: nowrap;
+            }
+
+            .hero {
+                padding: 42px 0 54px;
+            }
+
+            .hero-copy {
+                font-size: 17px;
+            }
+
+            .hero-actions,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .stats,
+            .services-grid,
+            .steps {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card,
+            .contact-panel {
+                padding: 22px;
+            }
+
+            .service {
+                min-height: auto;
+            }
+
+            section {
+                padding: 58px 0;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
         }
     </style>
 </head>
-
 <body>
-
-<div class="container">
-
-    <div class="logo">
-        Softphonic Technologies Private Limited
-    </div>
-
-    <div class="tagline">
-        Transforming Ideas into Digital Solutions
-    </div>
-
-    <div class="badge">
-        🚀 Website Launching Soon
-    </div>
-
-    <h1>Coming Soon</h1>
-
-    <p class="subtitle">
-        We are building innovative software solutions for businesses worldwide.
-        Our official website is currently under development and will be launching soon.
-    </p>
-
-    <div class="card">
-
-        <h2>Our Services</h2>
-
-        <ul class="services">
-            <li>✓ Custom Software Development</li>
-            <li>✓ Web Application Development</li>
-            <li>✓ Mobile App Development (Android & iOS)</li>
-            <li>✓ Backend & Cloud Solutions</li>
-            <li>✓ API Integration & Automation</li>
-            <li>✓ IT Consulting & Digital Transformation</li>
-        </ul>
-
-        <hr>
-
-        <div class="contact">
-
-            <h2>Contact Us</h2>
-
-            <p>
-                For software development, consulting, or partnership inquiries,
-                feel free to contact us.
-            </p>
-
-            <p>
-                📞
-                <a href="tel:+918421945039">
-                    +91 84219 45039
+    <div class="page">
+        <header class="site-header">
+            <div class="container nav" aria-label="Main navigation">
+                <a class="brand" href="#top" aria-label="Softphonic Technologies home">
+                    <img src="softphonic_logo.png" alt="Softphonic Technologies logo">
+                    <span class="brand-text">
+                        <span class="brand-name">Softphonic Technologies</span>
+                        <span class="brand-line">Apps | Web | Cloud</span>
+                    </span>
                 </a>
-            </p>
 
-            <p>
-                ✉️
-                <a href="mailto:contact@softphonic.com">
-                    contact@softphonic.com
-                </a>
-            </p>
+                <nav class="nav-links" aria-label="Primary navigation">
+                    <a href="#services">Services</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact" class="button">Contact Us</a>
+                </nav>
+            </div>
+        </header>
 
-            <p>
-                📍 Pune, Maharashtra, India
-            </p>
+        <main id="top">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="container hero-grid">
+                    <div>
+                        <span class="eyebrow">Launching soon from Pune, India</span>
+                        <h1 id="hero-title">Digital products built with clear thinking and dependable engineering.</h1>
+                        <p class="hero-copy">
+                            Softphonic Technologies Private Limited helps startups and businesses design, build, and scale modern web applications, mobile apps, APIs, cloud platforms, and workflow automation.
+                        </p>
 
-            <a href="mailto:contact@softphonic.com" class="cta-btn">
-                Request a Consultation
-            </a>
+                        <div class="hero-actions">
+                            <a class="button" href="mailto:contact@softphonic.com">Request a Consultation</a>
+                            <a class="button secondary" href="tel:+918421945039">Call +91 84219 45039</a>
+                        </div>
 
-        </div>
+                        <div class="stats" aria-label="Company highlights">
+                            <div class="stat">
+                                <strong>6+</strong>
+                                <span>Core IT services</span>
+                            </div>
+                            <div class="stat">
+                                <strong>100%</strong>
+                                <span>Custom-built solutions</span>
+                            </div>
+                            <div class="stat">
+                                <strong>24/7</strong>
+                                <span>Cloud-ready mindset</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <aside class="hero-card" aria-label="Softphonic capabilities">
+                        <img class="hero-logo" src="softphonic_logo.png" alt="Softphonic Apps Web Cloud">
+                        <div class="capability-list">
+                            <article class="capability">
+                                <span class="icon" aria-hidden="true">A</span>
+                                <div>
+                                    <h3>Applications</h3>
+                                    <p>Business portals, dashboards, SaaS tools, and mobile experiences.</p>
+                                </div>
+                            </article>
+                            <article class="capability">
+                                <span class="icon" aria-hidden="true">W</span>
+                                <div>
+                                    <h3>Web Platforms</h3>
+                                    <p>Fast, secure, responsive websites and web applications.</p>
+                                </div>
+                            </article>
+                            <article class="capability">
+                                <span class="icon" aria-hidden="true">C</span>
+                                <div>
+                                    <h3>Cloud Solutions</h3>
+                                    <p>APIs, integrations, automation, deployments, and cloud infrastructure.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="services" aria-labelledby="services-title">
+                <div class="container">
+                    <div class="section-head">
+                        <span class="section-kicker">What we build</span>
+                        <h2 id="services-title">End-to-end technology services for growing companies.</h2>
+                        <p>
+                            From first idea to production launch, we focus on practical architecture, clean user experiences, and maintainable systems that can grow with your business.
+                        </p>
+                    </div>
+
+                    <div class="services-grid">
+                        <article class="service">
+                            <span class="icon" aria-hidden="true">01</span>
+                            <h3>Custom Software Development</h3>
+                            <p>Tailored business tools, internal systems, and scalable software built around your exact workflow.</p>
+                        </article>
+                        <article class="service">
+                            <span class="icon" aria-hidden="true">02</span>
+                            <h3>Web Application Development</h3>
+                            <p>Responsive web apps, admin panels, dashboards, customer portals, and SaaS product interfaces.</p>
+                        </article>
+                        <article class="service">
+                            <span class="icon" aria-hidden="true">03</span>
+                            <h3>Mobile App Development</h3>
+                            <p>Android and iOS applications with intuitive flows, reliable APIs, and launch-ready foundations.</p>
+                        </article>
+                        <article class="service">
+                            <span class="icon" aria-hidden="true">04</span>
+                            <h3>Backend & Cloud Solutions</h3>
+                            <p>Secure APIs, databases, deployments, cloud hosting, and performance-focused backend systems.</p>
+                        </article>
+                        <article class="service">
+                            <span class="icon" aria-hidden="true">05</span>
+                            <h3>API Integration & Automation</h3>
+                            <p>Connect tools, reduce manual work, sync data, and automate repeatable business processes.</p>
+                        </article>
+                        <article class="service">
+                            <span class="icon" aria-hidden="true">06</span>
+                            <h3>IT Consulting</h3>
+                            <p>Technology planning, digital transformation guidance, product roadmaps, and architecture reviews.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="process" id="process" aria-labelledby="process-title">
+                <div class="container">
+                    <div class="section-head">
+                        <span class="section-kicker">How we work</span>
+                        <h2 id="process-title">A simple delivery process with room for smart decisions.</h2>
+                        <p>
+                            We keep collaboration clear, document decisions, and build in practical milestones so every project moves from concept to launch with confidence.
+                        </p>
+                    </div>
+
+                    <div class="steps">
+                        <article class="step">
+                            <h3>Discover</h3>
+                            <p>Understand your goals, users, workflows, constraints, and technical needs.</p>
+                        </article>
+                        <article class="step">
+                            <h3>Design</h3>
+                            <p>Shape the solution architecture, screens, data flows, and delivery roadmap.</p>
+                        </article>
+                        <article class="step">
+                            <h3>Develop</h3>
+                            <p>Build, integrate, test, and refine the product through focused iterations.</p>
+                        </article>
+                        <article class="step">
+                            <h3>Launch</h3>
+                            <p>Deploy smoothly, support handover, and prepare the foundation for future growth.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-section" id="contact" aria-labelledby="contact-title">
+                <div class="container contact-grid">
+                    <div class="section-head">
+                        <span class="section-kicker">Let us talk</span>
+                        <h2 id="contact-title">Have a software idea or business problem to solve?</h2>
+                        <p>
+                            Share what you are building. We will help you clarify the scope, choose a practical technology direction, and plan the next step.
+                        </p>
+                    </div>
+
+                    <address class="contact-panel">
+                        <div class="contact-item">
+                            <span class="contact-label">Phone</span>
+                            <a class="contact-value" href="tel:+918421945039">+91 84219 45039</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Email</span>
+                            <a class="contact-value" href="mailto:contact@softphonic.com">contact@softphonic.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Pune, Maharashtra, India</span>
+                        </div>
+                        <a class="button" href="mailto:contact@softphonic.com">Start a Project Conversation</a>
+                    </address>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <span>© 2026 Softphonic Technologies Private Limited. All rights reserved.</span>
+                <span>Apps | Web | Cloud</span>
+            </div>
+        </footer>
     </div>
-
-    <div class="footer">
-        © 2026 Softphonic Technologies Private Limited. All Rights Reserved.
-    </div>
-
-</div>
-
 </body>
 </html>
