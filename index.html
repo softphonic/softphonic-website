@@ -493,6 +493,35 @@
             height: 24px;
             fill: currentColor;
         }
+        .whatsapp-float {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 20;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            color: #fff;
+            background: #25d366;
+            box-shadow: 0 16px 36px rgba(13, 27, 42, 0.24);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .whatsapp-float:hover {
+            background: #1fb85a;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 42px rgba(13, 27, 42, 0.3);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+        }
 
         .sr-only {
             position: absolute;
@@ -608,6 +637,12 @@
             .footer-inner {
                 flex-direction: column;
                 gap: 8px;
+            }
+            .whatsapp-float {
+                right: 16px;
+                bottom: 16px;
+                width: 54px;
+                height: 54px;
             }
         }
     </style>
@@ -819,5 +854,11 @@
             </div>
         </footer>
     </div>
+    <a class="whatsapp-float" href="https://wa.me/918421945039?text=Hello%20Softphonic%20Technologies%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with Softphonic Technologies on WhatsApp">
+        <span class="sr-only">Chat on WhatsApp</span>
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M16.03 3.2A12.66 12.66 0 0 0 5.1 22.23L3.6 28.8l6.72-1.55A12.65 12.65 0 1 0 16.03 3.2Zm0 2.3a10.35 10.35 0 1 1-5.26 19.27l-.38-.23-3.65.84.82-3.55-.25-.39A10.35 10.35 0 0 1 16.03 5.5Zm-4.41 5.3c-.23 0-.6.08-.92.43-.31.35-1.2 1.17-1.2 2.85s1.23 3.31 1.4 3.54c.17.23 2.37 3.79 5.85 5.16 2.89 1.14 3.48.91 4.11.86.63-.06 2.03-.83 2.31-1.63.29-.8.29-1.49.2-1.63-.08-.14-.31-.23-.66-.4-.34-.18-2.02-1-2.34-1.11-.31-.12-.54-.18-.77.17-.23.34-.88 1.1-1.08 1.33-.2.23-.4.26-.74.09-.34-.18-1.45-.54-2.76-1.71-1.02-.91-1.71-2.03-1.91-2.37-.2-.35-.02-.53.15-.71.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.12-.23.06-.43-.03-.6-.08-.17-.77-1.86-1.05-2.54-.28-.67-.56-.58-.77-.59h-.66Z" />
+        </svg>
+    </a>
 </body>
 </html>
