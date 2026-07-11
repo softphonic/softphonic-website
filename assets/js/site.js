@@ -14,14 +14,19 @@
     var toggle = document.querySelector(".nav-toggle");
     if (!nav || !toggle) return;
 
+    function setMenu(open) {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      // Lock background scroll while the mobile menu is open
+      document.body.classList.toggle("nav-open", open);
+    }
+
     function closeMenu() {
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
+      setMenu(false);
     }
 
     toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      setMenu(!nav.classList.contains("is-open"));
     });
 
     // Close menu when a link is clicked (mobile)

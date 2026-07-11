@@ -960,6 +960,8 @@ section { padding: var(--space-section) 0; }
   .nav-link[aria-current="page"]::after { display: none; }
   .nav-link[aria-current="page"] { background: var(--soft); }
   .nav-cta .btn { width: 100%; }
+  /* Freeze background scroll while the mobile menu is open */
+  body.nav-open { overflow: hidden; }
 
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { max-width: 520px; margin-inline: auto; }
